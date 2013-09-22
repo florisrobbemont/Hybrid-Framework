@@ -1,0 +1,8 @@
+- Be aware of IEnumerable's multiple iterations. If you have a LINQ query over, and get it as an IEnumerable, always toList() is when you're going to use it.
+  Otherwise you'll get multiple enumerations (IE: the linq query is executed every time you access is => .Count(), .Skip() etc).
+
+- You can't ignore the entire packages/ folder in your git ignore file. This folder is also used by Umbraco.
+  I've replaced the .gitignore file with ours
+
+
+

@@ -91,12 +91,6 @@ publish/
 # Publish Web Output
 *.Publish.xml
 
-# NuGet Packages Directory
-## TODO: If you have NuGet Package Restore enabled, uncomment the next line
-packages/
-
-!development/Umbraco.Site/App_Data/packages
-
 # Windows Azure Build Output
 csx
 *.build.csdef
@@ -119,7 +113,7 @@ ClientBin/
 # RIA/Silverlight projects
 Generated_Code/
 
-# Backup & report files from converting an old project file to a newer
+# Backup &amp; report files from converting an old project file to a newer
 # Visual Studio version. Backup files are not needed, because we have git ;-)
 _UpgradeReport_Files/
 Backup*/
@@ -127,14 +121,8 @@ UpgradeLog*.XML
 UpgradeLog*.htm
 
 # SQL Server files
-#App_Data/*.mdf
-#App_Data/*.ldf
-
-
-#LightSwitch generated files
-GeneratedArtifacts/
-_Pvt_Extensions/
-ModelManifest.xml
+App_Data/*.mdf
+App_Data/*.ldf
 
 # =========================
 # Windows detritus
@@ -150,34 +138,77 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
-# Mac desktop service store files
+# Mac crap
 .DS_Store
 
-# =========================
-# XMl files in bin folders
-# =========================
-development/Umbraco.Site/[Bb]in/*.xml
-development/Umbraco.Extensions/[Bb]in/*.xml
-# =========================
-# Umbraco
-# =========================
-development/Umbraco.Site/App_Data/umbraco.config
-development/Umbraco.Site/App_Data/preview/*.config
-development/Umbraco.Site/App_Data/TEMP/ClientDependency/
-development/Umbraco.Site/App_Data/ClientDependency/
-development/Umbraco.Site/App_Data/TEMP/ExamineIndexes/
-development/Umbraco.Site/App_Data/TEMP/PluginCache/*
-development/Umbraco.Site/App_Data/TEMP/SEOChecker/
-development/Umbraco.Site/App_Data/Logs/*
-development/Umbraco.Site/App_Data/TEMP/Razor/
-development/Umbraco.Site/App_Data/FeedCache/
-development/Umbraco.Site/App_Data/courier/revisions/
-development/Umbraco.Site/App_Data/courier/cache/*
-development/Umbraco.Site/App_Data/umbraco.licensing.log.txt
-development/Umbraco.Site/aspnet_client/
-development/Umbraco.Site/App_Data/*.udt
-# =========================
-# ImageRezier.Net DiskCache 
-# =========================
-development/Umbraco.Site/imagecache/*
-development/Umbraco.Site/App_Data/TEMP/Imagecache/*
+#Temporarily ignore old Umbraco bin
+development/Umbraco.Site/bin/
+
+
+development/UmbracoTemplate.Web/bin/amd64
+development/UmbracoTemplate.Web/bin/x86
+development/UmbracoTemplate.Web/bin/*.xml
+development/UmbracoTemplate.Web/bin/*.XML
+development/UmbracoTemplate.Web/bin/Castle.*
+development/UmbracoTemplate.Web/bin/UmbracoTemplate.*
+development/UmbracoTemplate.Web/bin/System.*
+development/UmbracoTemplate.Web/bin/Microsoft.*
+development/UmbracoTemplate.Web/bin/umbraco.dll
+development/UmbracoTemplate.Web/bin/[Uu]mbraco.*
+development/UmbracoTemplate.Web/bin/ServiceStack.Text.dll 
+development/UmbracoTemplate.Web/bin/businesslogic.dll
+development/UmbracoTemplate.Web/bin/ClientDependency.Core.dll
+development/UmbracoTemplate.Web/bin/ClientDependency.Core.Mvc.dll
+development/UmbracoTemplate.Web/bin/cms.dll
+development/UmbracoTemplate.Web/bin/controls.dll
+development/UmbracoTemplate.Web/bin/CookComputing.XmlRpcV2.dll
+development/UmbracoTemplate.Web/bin/Examine.dll
+development/UmbracoTemplate.Web/bin/EntityFramework.dll
+development/UmbracoTemplate.Web/bin/HtmlAgilityPack.dll
+development/UmbracoTemplate.Web/bin/ICSharpCode.SharpZipLib.dll
+development/UmbracoTemplate.Web/bin/interfaces.dll
+development/UmbracoTemplate.Web/bin/log4net.dll
+development/UmbracoTemplate.Web/bin/Lucene.Net.dll
+development/UmbracoTemplate.Web/bin/MySql.Data.dll
+development/UmbracoTemplate.Web/bin/Our.Umbraco.uGoLive.47x.dll
+development/UmbracoTemplate.Web/bin/Our.Umbraco.uGoLive.Checks.dll
+development/UmbracoTemplate.Web/bin/Our.Umbraco.uGoLive.dll
+development/UmbracoTemplate.Web/bin/SQLCE4Umbraco.dll
+development/UmbracoTemplate.Web/bin/TidyNet.dll
+development/UmbracoTemplate.Web/bin/UmbracoExamine.dll
+development/UmbracoTemplate.Web/bin/UrlRewritingNet.UrlRewriter.dll
+development/UmbracoTemplate.Web/bin/ImageResizer.*
+development/UmbracoTemplate.Web/bin/AWSSDK.dll
+development/UmbracoTemplate.Web/bin/Esent.Interop.dll
+development/UmbracoTemplate.Web/bin/GeoAPI.dll
+development/UmbracoTemplate.Web/bin/ICSharpCode.NRefactory.CSharp.dll
+development/UmbracoTemplate.Web/bin/ICSharpCode.NRefactory.dll
+development/UmbracoTemplate.Web/bin/Jint.Raven.dll
+development/UmbracoTemplate.Web/bin/Lucene.Net.Contrib.Spatial.NTS.dll
+development/UmbracoTemplate.Web/bin/Mono.Cecil.dll
+development/UmbracoTemplate.Web/bin/NetTopologySuite.dll
+development/UmbracoTemplate.Web/bin/PowerCollections.dll
+development/UmbracoTemplate.Web/bin/Raven.*
+development/UmbracoTemplate.Web/bin/Spatial4n.Core.NTS.dll
+development/UmbracoTemplate.Web/bin/AutoMapper.dll
+development/UmbracoTemplate.Web/bin/Antlr3.Runtime.dll
+development/UmbracoTemplate.Web/bin/DevTrends.MvcDonutCaching.dll
+development/UmbracoTemplate.Web/bin/Imazen.SlimResponse.dll
+development/UmbracoTemplate.Web/bin/MiniProfiler.dll
+development/UmbracoTemplate.Web/bin/Newtonsoft.Json.dll
+development/UmbracoTemplate.Web/bin/WebGrease.dll
+development/UmbracoTemplate.Web/imagecache/*
+development/UmbracoTemplate.Web/App_Data/TEMP/Imagecache/*
+
+umbraco.config
+[Cc]ached
+[Ll]ogs
+TEMP
+.sass-cache
+development/packages/
+
+# Elmah error folder
+error-*.xml
+*.orig
+
+
