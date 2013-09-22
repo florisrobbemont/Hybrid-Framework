@@ -35,6 +35,7 @@
     <key alias="toPublish">발행 항목으로 전달</key>
     <key alias="translate">번역</key>
     <key alias="update">업데이트</key>
+    <key alias="SEOCheckerSchedule">Add scheduled validation</key>
   </area>
   <area alias="assignDomain">
     <key alias="addNew">새로운 도메인 추가</key>
@@ -483,7 +484,7 @@
     <key alias="mailBodyHtml"><![CDATA[<p>안녕하세요 %0%</p>
 
 	  <p>사용자 <strong>'%3%'</strong> 가  작업 <strong>'%1%'</strong> 를 
-       페이지 <a href="http://%4%/actions/preview.aspx?id=%5%"><strong>'%2%'</strong></a> 에서
+       페이지 <a href="%7%"> 에서
        진행했음을 알리는 자동 발송 메일입니다.
   </p>
 	  <div style="margin: 8px 0; padding: 8px; display: block;">
@@ -617,6 +618,7 @@
     <key alias="statistics">통계</key>
     <key alias="translation">변환</key>
     <key alias="users">사용자</key>
+    <key alias="seochecker">SEO Checker</key>
   </area>
   <area alias="settings">
     <key alias="defaulttemplate">기본 템플릿</key>

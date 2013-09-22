@@ -35,6 +35,7 @@
     <key alias="toPublish">שלח לפירסום</key>
     <key alias="translate">תרגם</key>
     <key alias="update">עדכן</key>
+    <key alias="SEOCheckerSchedule">Add scheduled validation</key>
   </area>
   <area alias="assignDomain">
     <key alias="addNew">הוסף דומיין חדש</key>
@@ -498,7 +499,7 @@ To manage your website, simply open the umbraco back office and start adding con
     <key alias="mailBodyHtml"><![CDATA[<p>Hi %0%</p>
 
 		  <p>This is an automated mail to inform you that the task <strong>'%1%'</strong> 
-		  has been performed on the page <a href="http://%4%/actions/preview.aspx?id=%5%"><strong>'%2%'</strong></a>
+		  has been performed on the page <a href="%7%"><strong>'%2%'</strong></a>
 		  by the user <strong>'%3%'</strong>
 	  </p>
 		  <div style="margin: 8px 0; padding: 8px; display: block;">
@@ -635,6 +636,7 @@ To manage your website, simply open the umbraco back office and start adding con
     <key alias="statistics">סטטיסטיקות</key>
     <key alias="translation">תירגום</key>
     <key alias="users">משתמשים</key>
+    <key alias="seochecker">SEO Checker</key>
   </area>
   <area alias="settings">
     <key alias="defaulttemplate">תבנית ברירת מחדל</key>

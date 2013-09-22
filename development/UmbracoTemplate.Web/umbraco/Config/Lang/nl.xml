@@ -35,6 +35,7 @@
     <key alias="toPublish">Klaar voor publicatie</key>
     <key alias="translate">Vertalen</key>
     <key alias="update">Bijwerken</key>
+    <key alias="SEOCheckerSchedule">Add scheduled validation</key>
   </area>
   <area alias="assignDomain">
     <key alias="addNew">Nieuw domein toevoegen</key>
@@ -447,7 +448,7 @@ Echter, Runway biedt een gemakkelijke basis om je snel op weg te helpen. Als je 
     <key alias="mailBodyHtml"><![CDATA[<p>Hi %0%</p>
 
 		  <p>Dit is een geautomatiseerde mail om u op de hoogte te brengen dat de taak <strong>'%1%'</strong> 
-		  is uitgevoerd op pagina <a href="http://%4%/actions/preview.aspx?id=%5%"><strong>'%2%'</strong></a> 
+		  is uitgevoerd op pagina <strong>'%2%'</strong> 
 		  door gebruiker <strong>'%3%'</strong>
 	  </p>
 		  <div class="buttons">
@@ -585,6 +586,8 @@ Echter, Runway biedt een gemakkelijke basis om je snel op weg te helpen. Als je 
     <key alias="statistics">Statistieken</key>
     <key alias="translation">Vertaling</key>
     <key alias="users">Gebruikers</key>
+    <key alias="seochecker">SEO Checker</key>
+    <key alias="dewd">E-mail archief</key>
   </area>
   <area alias="settings">
     <key alias="defaulttemplate">Standaard template</key>

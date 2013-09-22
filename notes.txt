@@ -1,8 +1,20 @@
 - Be aware of IEnumerable's multiple iterations. If you have a LINQ query over, and get it as an IEnumerable, always toList() is when you're going to use it.
   Otherwise you'll get multiple enumerations (IE: the linq query is executed every time you access is => .Count(), .Skip() etc).
 
-- You can't ignore the entire packages/ folder in your git ignore file. This folder is also used by Umbraco.
-  I've replaced the .gitignore file with ours
+- It's better to use NuGet package restore then to include all DLL's in your repository. This way the repo stays small.
+  I've replaced the .gitignore file with ours. We exclude certain files from the web project's BIN folder manually.
+
+- I've removed both projects from your solution. My view is that an Umbraco solution should reflect a 'good' project structure:
+	- UmbracoProject (CORE layer, contains all code that is needed to make your application run)
+	- UmbracoProject.Common (All non-logic utilities without dependencies go here)
+	- UmbracoProject.Data (Create if necessary, when your data code is becoming more then just a simple class)
+	- UmbracoProject.Web (MVC site which holds the Umbraco DLL's and website. No other project in the solution should know about the Umbraco DLL's)
+  This structure will allow you to better seperate the Web world from the actual code world and create better code (more seperated from your web project).
+  The container will help you to bring this all together
+
+- I've copied all the files from your original Umbraco project to the new one. All packages and settings should work.
+
+
 
 
 

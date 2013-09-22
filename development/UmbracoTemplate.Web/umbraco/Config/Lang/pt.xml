@@ -35,6 +35,7 @@
     <key alias="toPublish">Enviar para publicação</key>
     <key alias="translate">Traduzir</key>
     <key alias="update">Atualizar</key>
+    <key alias="SEOCheckerSchedule">Add scheduled validation</key>
   </area>
   <area alias="assignDomain">
     <key alias="addNew">Adicionar novo Domínio</key>
@@ -475,7 +476,7 @@ Vá até http://%4%/actions/editContent.aspx?id=%5% para editar.
     <key alias="mailBodyHtml"><![CDATA[<p>Olá %0%</p>
 
 		  <p>Esta é uma mensagem automatizada para informar que a tarefa <strong>'%1%'</strong> 
-		  foi completada na página <a href="http://%4%/actions/preview.aspx?id=%5%"><strong>'%2%'</strong></a>
+		  foi completada na página <a href="%7%"><strong>'%2%'</strong></a>
 		  pelo usuário <strong>'%3%'</strong>
 	  </p>
 		  <div style="margin: 8px 0; padding: 8px; display: block;">
@@ -606,6 +607,7 @@ Você pode publicar esta página e todas suas sub-páginas ao selecionar <em>pub
     <key alias="statistics">Estatísticas</key>
     <key alias="translation">Tradução</key>
     <key alias="users">Usuários</key>
+    <key alias="seochecker">SEO Checker</key>
   </area>
   <area alias="settings">
     <key alias="defaulttemplate">Modelo padrão</key>
