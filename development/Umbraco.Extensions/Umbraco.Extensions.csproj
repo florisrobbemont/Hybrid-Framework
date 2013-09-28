@@ -152,39 +152,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\ContactController.cs" />
-    <Compile Include="Controllers\NewsOverviewController.cs" />
-    <Compile Include="Controllers\DefaultController.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Controllers\HomeController.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Controllers\Base\BaseSurfaceController.cs" />
-    <Compile Include="Controllers\Base\FormController.cs" />
-    <Compile Include="Controllers\SitemapController.cs" />
-    <Compile Include="Controllers\WebAPI\NewsApiController.cs" />
     <Compile Include="Enums\EmailType.cs" />
     <Compile Include="Events\BundleEvents.cs" />
     <Compile Include="Events\UmbracoEvents.cs" />
-    <Compile Include="Models\BaseModel.cs" />
-    <Compile Include="Models\Custom\SitemapItem.cs" />
-    <Compile Include="Models\Form\ContactFormModel.cs" />
-    <Compile Include="Models\Custom\Date.cs" />
-    <Compile Include="Models\Custom\GoogleMaps.cs" />
-    <Compile Include="Models\Custom\WidgetImage.cs" />
-    <Compile Include="Models\Custom\WidgetText.cs" />
-    <Compile Include="Models\Custom\Pager.cs" />
-    <Compile Include="Models\Custom\NewsItem.cs" />
-    <Compile Include="Models\Custom\WidgetBase.cs" />
-    <Compile Include="Models\NewsOverviewModel.cs" />
-    <Compile Include="Models\HomeModel.cs" />
-    <Compile Include="Models\Custom\MenuItem.cs" />
-    <Compile Include="Models\Custom\MediaItem.cs" />
-    <Compile Include="Models\Custom\MediaItemCrop.cs" />
-    <Compile Include="Models\Custom\UrlPicker.cs" />
-    <Compile Include="Models\Poco\EmailPoco.cs" />
-    <Compile Include="Models\SitemapModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Configuration.cs" />
     <Compile Include="Utilities\ExtensionMethods.cs" />
@@ -194,6 +164,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

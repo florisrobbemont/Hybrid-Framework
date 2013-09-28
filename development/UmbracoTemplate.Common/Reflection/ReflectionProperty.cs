@@ -1,0 +1,100 @@
+﻿using System;
+using System.Linq;
+using System.Reflection;
+using UmbracoTemplate.Common.Reflection.Exceptions;
+
+namespace UmbracoTemplate.Common.Reflection
+{
+    public class ReflectionProperty
+    {
+        private readonly ReflectionAttributeList attributes;
+        private readonly ReflectionMethod getMethod;
+        private readonly string name;
+        private readonly ReflectionClass parent;
+        private readonly PropertyInfo property;
+        private readonly Type propertyType;
+        private readonly ReflectionMethod setMethod;
+
+        internal ReflectionProperty(PropertyInfo property, ReflectionClass parent)
+        {
+            this.property = property;
+            this.parent = parent;
+
+            this.attributes = new ReflectionAttributeList(this.property.GetCustomAttributes(true).OfType<Attribute>().ToList());
+            this.name = this.property.Name;
+            this.propertyType = this.property.PropertyType;
+            
+            var method = this.property.GetGetMethod() ?? this.property.GetGetMethod(true);
+            if (method != null)
+            {
+                this.getMethod = new ReflectionMethod(method, parent);
+            }
+
+            method = this.property.GetSetMethod() ?? this.property.GetSetMethod(true);
+            if (method != null)
+            {
+                this.setMethod = new ReflectionMethod(method, parent);
+            }
+        }
+
+        public ReflectionAttributeList Attributes
+        {
+            get
+            {
+                return this.attributes;
+            }
+        }
+
+        public string FullName
+        {
+            get
+            {
+                return this.parent.FullName + "." + this.name;
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return this.name;
+            }
+        }
+
+        public Type PropertyType
+        {
+            get
+            {
+                return this.propertyType;
+            }
+        }
+
+        public string WithClassName
+        {
+            get
+            {
+                return this.parent.Name + "." + this.name;
+            }
+        }
+
+        public object GetValue(object from)
+        {
+            if (this.getMethod == null)
+            {
+                throw new NoSuchMethodReflectionException();
+            }
+
+            return this.getMethod.Invoke(from, null);
+        }
+
+        public void SetValue(object to, object what)
+        {
+            if (this.setMethod == null)
+            {
+                throw new NoSuchMethodReflectionException();
+            }
+            
+            this.setMethod.Invoke(to, new[] { what });
+        }
+    }
+}

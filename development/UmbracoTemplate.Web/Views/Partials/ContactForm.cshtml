@@ -1,7 +1,7 @@
 @using Umbraco.Web;
 @using Umbraco.Extensions.Utilities;
 @using Umbraco.Extensions.Models.Form;
-@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContactFormModel>
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<UmbracoTemplate.Web.ViewModels.Form.ContactFormModel>
 
 @using (Html.BeginUmbracoForm("SendContact", "Contact", null, new { @id = "contactForm" }))
 {

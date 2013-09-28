@@ -4,7 +4,7 @@
 @using Umbraco.Extensions.Utilities
 @using Umbraco.Web
 @using SEOChecker.Library
-@inherits Umbraco.Web.Mvc.UmbracoViewPage<BaseModel>
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<UmbracoTemplate.Web.ViewModels.BaseModel>
 @{
     Layout = null;
     var searchUrl = Umbraco.NiceUrl(Model.Content.TopPage().GetPropertyValue<int>("searchPage"));

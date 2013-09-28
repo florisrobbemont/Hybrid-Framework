@@ -14,6 +14,30 @@
 
 - I've copied all the files from your original Umbraco project to the new one. All packages and settings should work.
 
+- DEV Tip: Don't use so many regions unless it's absolutely necessary. Using regions makes it harder to read a class.
+           If the class becomes big enough to use regions, you're putting too much code into one class ;)
+	   Because of this I've removed all regions in the code I've changed. You can see the difference in readability.
+
+- (From the SOLID books and the coding guidelines that are inspired by SOLID. These are are the ones we use: http://csharpguidelines.codeplex.com/):
+  A class or interface should have a single purpose within the system it participates in. 
+  In general, a class is either representing a primitive type like an email or ISBN number, an abstraction of some business concept, 
+  a plain data structure or responsible for orchestrating the interaction between other classes. It is never a combination of those. 
+  This rule is widely known as the Single Responsibility Principle, one of the SOLID principles.
+
+  Tip: A class with the word And in it is an obvious violation of this rule.
+  Tip: Use Design Patterns to communicate the intent of a class. If you can’t assign a single design pattern to a class, chances are that it is doing more than one thing.
+  Note: If you create a class representing a primitive type you can greatly simplify it usage by making it immutable.
+
+- 
+
+
+- TODO:
+	- Email
+	- Sitemap
+	- News
+	- View Compilation
+	- Contact form
+
 
 
 

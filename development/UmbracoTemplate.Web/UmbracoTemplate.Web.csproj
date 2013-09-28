@@ -48,6 +48,12 @@
     <Reference Include="businesslogic">
       <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\businesslogic.dll</HintPath>
     </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.2.0\lib\net40-client\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.2.1\lib\net40\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="ClientDependency.Core">
       <HintPath>..\packages\ClientDependency.1.7.0.4\lib\ClientDependency.Core.dll</HintPath>
     </Reference>
@@ -264,16 +270,55 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
+    <Compile Include="Infrastructure\BaseSurfaceController.cs" />
+    <Compile Include="Infrastructure\Composition\Installers\BundleInstaller.cs" />
+    <Compile Include="Infrastructure\Composition\Installers\ControllersInstaller.cs" />
+    <Compile Include="Infrastructure\Composition\Installers\HttpContextInstaller.cs" />
+    <Compile Include="Infrastructure\Composition\Installers\LoggingInstaller.cs" />
+    <Compile Include="Infrastructure\Composition\Installers\MailerInstaller.cs" />
+    <Compile Include="Infrastructure\Composition\Installers\SearchInstaller.cs" />
+    <Compile Include="Infrastructure\Composition\Installers\UmbracoInstaller.cs" />
+    <Compile Include="Infrastructure\Composition\UmbracoFilteredControllerFactory.cs" />
+    <Compile Include="Infrastructure\Composition\WindsorCompositionRoot.cs" />
+    <Compile Include="Infrastructure\Composition\WindsorControllerFactory.cs" />
+    <Compile Include="Infrastructure\FormController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewsOverviewController.cs" />
+    <Compile Include="Controllers\SitemapController.cs" />
+    <Compile Include="Controllers\Api\NewsApiController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\BaseModel.cs" />
+    <Compile Include="ViewModels\Custom\Date.cs" />
+    <Compile Include="ViewModels\Custom\GoogleMaps.cs" />
+    <Compile Include="ViewModels\Custom\MediaItem.cs" />
+    <Compile Include="ViewModels\Custom\MediaItemCrop.cs" />
+    <Compile Include="ViewModels\Custom\MenuItem.cs" />
+    <Compile Include="ViewModels\Custom\NewsItem.cs" />
+    <Compile Include="ViewModels\Custom\Pager.cs" />
+    <Compile Include="ViewModels\Custom\SitemapItem.cs" />
+    <Compile Include="ViewModels\Custom\UrlPicker.cs" />
+    <Compile Include="ViewModels\Custom\WidgetBase.cs" />
+    <Compile Include="ViewModels\Custom\WidgetImage.cs" />
+    <Compile Include="ViewModels\Custom\WidgetText.cs" />
+    <Compile Include="ViewModels\Form\ContactFormModel.cs" />
+    <Compile Include="ViewModels\HomeModel.cs" />
+    <Compile Include="ViewModels\NewsOverviewModel.cs" />
+    <Compile Include="Models\EmailPoco.cs" />
+    <Compile Include="ViewModels\SitemapModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Css\dummy.txt" />
+    <Content Include="Css\main.css" />
+    <Content Include="Css\RTE.css" />
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\dummy.txt" />
+    <Content Include="Images\umbraco-love.png" />
+    <Content Include="Scripts\functions.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\slimmage.js" />
+    <Content Include="Scripts\slimmage.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -282,10 +327,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
@@ -351,6 +393,41 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\404handlers.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UmbracoTemplate.Common\UmbracoTemplate.Common.csproj">
+      <Project>{63682726-e788-40f3-827d-eea5e402d02e}</Project>
+      <Name>UmbracoTemplate.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UmbracoTemplate\UmbracoTemplate.csproj">
+      <Project>{f668e85e-c718-4fd7-bd41-5522a3ec7a9d}</Project>
+      <Name>UmbracoTemplate</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Eksponent.CropUp.config" />
+    <Content Include="Config\Eksponent.Dewd.config" />
+    <None Include="Config\Eksponent.Dewd.Schema-v1.2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Config\settings.config" />
+    <Content Include="Config\smtp.config" />
+    <Content Include="Views\Contact.cshtml" />
+    <Content Include="Views\Content.cshtml" />
+    <Content Include="Views\Custom.cshtml" />
+    <Content Include="Views\Error.cshtml" />
+    <Content Include="Views\Gallery.cshtml" />
+    <Content Include="Views\Home.cshtml" />
+    <Content Include="Views\MacroPartials\ezSearch.cshtml" />
+    <Content Include="Views\Master.cshtml" />
+    <Content Include="Views\NewsItem.cshtml" />
+    <Content Include="Views\NewsOverview.cshtml" />
+    <Content Include="Views\Partials\ContactForm.cshtml" />
+    <Content Include="Views\Partials\ShowDates.cshtml" />
+    <Content Include="Views\Partials\WidgetImage.cshtml" />
+    <Content Include="Views\Partials\WidgetText.cshtml" />
+    <Content Include="Views\Search.cshtml" />
+    <Content Include="Views\Sitemap.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

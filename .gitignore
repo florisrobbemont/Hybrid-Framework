@@ -151,6 +151,7 @@ development/UmbracoTemplate.Web/bin/*.xml
 development/UmbracoTemplate.Web/bin/*.XML
 development/UmbracoTemplate.Web/bin/Castle.*
 development/UmbracoTemplate.Web/bin/UmbracoTemplate.*
+development/UmbracoTemplate.Web/bin/uComponents.*
 development/UmbracoTemplate.Web/bin/System.*
 development/UmbracoTemplate.Web/bin/Microsoft.*
 development/UmbracoTemplate.Web/bin/umbraco.dll

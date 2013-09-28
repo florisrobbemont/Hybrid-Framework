@@ -40,6 +40,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\Exceptions\NoSuchMethodReflectionException.cs" />
+    <Compile Include="Reflection\Exceptions\NullReferenceReflectionException.cs" />
+    <Compile Include="Reflection\Exceptions\ReflectionException.cs" />
+    <Compile Include="Reflection\Exceptions\WrongObjectReflectionException.cs" />
+    <Compile Include="Reflection\ReflectionAttributeList.cs" />
+    <Compile Include="Reflection\ReflectionCache.cs" />
+    <Compile Include="Reflection\ReflectionClass.cs" />
+    <Compile Include="Reflection\ReflectionMethod.cs" />
+    <Compile Include="Reflection\ReflectionMethodList.cs" />
+    <Compile Include="Reflection\ReflectionProperty.cs" />
+    <Compile Include="Reflection\ReflectionPropertyList.cs" />
+    <Compile Include="Reflection\ReflectionUtils.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
