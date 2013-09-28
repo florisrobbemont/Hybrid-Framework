@@ -152,23 +152,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\EmailType.cs" />
-    <Compile Include="Events\BundleEvents.cs" />
     <Compile Include="Events\UmbracoEvents.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\Configuration.cs" />
     <Compile Include="Utilities\ExtensionMethods.cs" />
-    <Compile Include="Utilities\Global.cs" />
-    <Compile Include="Utilities\MobileDetection.cs" />
     <Compile Include="Utilities\Singleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

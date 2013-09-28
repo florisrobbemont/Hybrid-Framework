@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using System.Web.UI;
 using Umbraco.Web.Models;
 using UmbracoTemplate.Web.Infrastructure;
+using UmbracoTemplate.Web.ViewModels;
 
 namespace UmbracoTemplate.Web.Controllers
 {

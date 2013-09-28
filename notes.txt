@@ -1,6 +1,10 @@
 - Be aware of IEnumerable's multiple iterations. If you have a LINQ query over, and get it as an IEnumerable, always toList() is when you're going to use it.
   Otherwise you'll get multiple enumerations (IE: the linq query is executed every time you access is => .Count(), .Skip() etc).
 
+- Don't use string comparison with the .ToLower() method. This is slow and will also NOT work when using other languages. (Like the Arabic letter i).
+  Instead of writing: if(custom.ToLower() == "url")
+  Do: if(custom.Equals("url", StringComparison.OrdinalIgnoreCase))
+
 - It's better to use NuGet package restore then to include all DLL's in your repository. This way the repo stays small.
   I've replaced the .gitignore file with ours. We exclude certain files from the web project's BIN folder manually.
 
@@ -28,8 +32,22 @@
   Tip: Use Design Patterns to communicate the intent of a class. If you can’t assign a single design pattern to a class, chances are that it is doing more than one thing.
   Note: If you create a class representing a primitive type you can greatly simplify it usage by making it immutable.
 
-- 
+- I've added my Kernel system to your codebase. This system is nothing more then an eventing system that allows you to run events throughout your code.
+  It comes with 2 events as standard: Startup, Shutdown. These events are hooked into Umbraco. This removes the need for multiple ApplicationEvents classes.
+  It also allows you to add groups of events. For example, you're building some syncing system that has multiple categories: Products, Categories, Customers etc.
+  You would have the following events:
+	- ProductsSync
+	- CategoriesSync
+	- CustomersSync
+	- etc
+  All these events can be run manually using the IKernelContext interface. You can also create a group, for example: Syncers. 
+  Using the same interface your can call: RunKernelEventGroup('Syncers'), and it will run all the events from the group.
 
+- I've moved the bundle configuration to their own interface (IBundleConfiguration). You now have a class for each configuration
+
+- I've removed the Singleton<> class since this is now all managed by the IoC container.
+
+- I've splitted up the class called: ExtensionMethods into different categories. They are spread out throughout the application based on their extension.
 
 - TODO:
 	- Email

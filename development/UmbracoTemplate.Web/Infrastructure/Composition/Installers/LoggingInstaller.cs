@@ -1,6 +1,9 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
+using UmbracoTemplate.Composition.WindsorLifestyles;
+using UmbracoTemplate.Logging;
+using UmbracoTemplate.Web.Logging;
 
 namespace UmbracoTemplate.Web.Infrastructure.Composition.Installers
 {

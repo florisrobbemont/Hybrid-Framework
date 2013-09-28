@@ -93,6 +93,9 @@
     <Reference Include="Lucene.Net">
       <HintPath>..\packages\Lucene.Net.2.9.4.1\lib\net40\Lucene.Net.dll</HintPath>
     </Reference>
+    <Reference Include="Lucene.Net.Contrib.Highlighter">
+      <HintPath>..\..\lib\Lucene.Net.Contrib.Highlighter.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ApplicationBlocks.Data">
       <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\Microsoft.ApplicationBlocks.Data.dll</HintPath>
     </Reference>
@@ -270,6 +273,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Boot\Boot.cs" />
+    <Compile Include="Boot\BundleStartup.cs" />
+    <Compile Include="Boot\FilterConfig.cs" />
+    <Compile Include="Mvc\Global.cs" />
+    <Compile Include="Bundles\IBundleConfiguration.cs" />
+    <Compile Include="Bundles\JavascriptBundleConfiguration.cs" />
+    <Compile Include="Bundles\StyleBundleConfiguration.cs" />
+    <Compile Include="Bundles\UnmodifiedBundleOrderer.cs" />
+    <Compile Include="Content\ContentProvider.cs" />
+    <Compile Include="Content\IContentProvider.cs" />
+    <Compile Include="Content\IUmbracoHelperFactory.cs" />
+    <Compile Include="Content\Search\DocumentTypes\ContentDocumentType.cs" />
+    <Compile Include="Content\Search\IWebsiteSearcherContext.cs" />
+    <Compile Include="Content\Search\WebsiteSearchArgument.cs" />
+    <Compile Include="Content\Search\WebsiteSearchDocumentType.cs" />
+    <Compile Include="Content\Search\WebsiteSearchDocumentTypeContent.cs" />
+    <Compile Include="Content\Search\WebsiteSearcherContext.cs" />
+    <Compile Include="Content\Search\WebsiteSearchResult.cs" />
     <Compile Include="Infrastructure\BaseSurfaceController.cs" />
     <Compile Include="Infrastructure\Composition\Installers\BundleInstaller.cs" />
     <Compile Include="Infrastructure\Composition\Installers\ControllersInstaller.cs" />
@@ -288,6 +309,8 @@
     <Compile Include="Controllers\NewsOverviewController.cs" />
     <Compile Include="Controllers\SitemapController.cs" />
     <Compile Include="Controllers\Api\NewsApiController.cs" />
+    <Compile Include="Logging\LoggingService.cs" />
+    <Compile Include="Mvc\MobileDetection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BaseModel.cs" />
     <Compile Include="ViewModels\Custom\Date.cs" />
@@ -327,7 +350,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

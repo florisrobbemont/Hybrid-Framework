@@ -62,9 +62,7 @@ namespace Umbraco.Extensions.Events
             Media.AfterSave += Media_AfterSave;
             
 
-            //By registering this here we can make sure that if route hijacking doesn't find a controller it will use this controller.
-            //That way each page will always be routed through one of our controllers.
-            DefaultRenderMvcControllerResolver.Current.SetDefaultControllerType(typeof(DefaultController));
+            
         }
 
         public void OnApplicationStarted(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)

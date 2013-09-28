@@ -1,4 +1,5 @@
 ﻿using System;
+using UmbracoTemplate.Kernel;
 
 namespace UmbracoTemplate.Composition
 {
@@ -28,6 +29,10 @@ namespace UmbracoTemplate.Composition
         /// </summary>
         public static void Start()
         {
+            using (var kernelContext = new ComponentWrapper<IKernelContext>())
+            {
+                kernelContext.Component.RunKernelEventGroups("Startup");    
+            }
         }
 
         /// <summary>
@@ -35,6 +40,12 @@ namespace UmbracoTemplate.Composition
         /// </summary>
         public static void Stop()
         {
+            using (var kernelContext = new ComponentWrapper<IKernelContext>())
+            {
+                kernelContext.Component.RunKernelEventGroups("Shutdown");
+            }
+
+            ObjectFactory.Dispose();
         }
     }
 }

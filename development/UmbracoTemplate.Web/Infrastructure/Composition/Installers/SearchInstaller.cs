@@ -1,4 +1,5 @@
 ﻿using Castle.MicroKernel.Registration;
+using UmbracoTemplate.Web.Content.Search;
 
 namespace UmbracoTemplate.Web.Infrastructure.Composition.Installers
 {

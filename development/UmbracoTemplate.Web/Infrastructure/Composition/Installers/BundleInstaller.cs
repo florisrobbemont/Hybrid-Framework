@@ -1,6 +1,7 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
+using UmbracoTemplate.Web.Bundles;
 
 namespace UmbracoTemplate.Web.Infrastructure.Composition.Installers
 {

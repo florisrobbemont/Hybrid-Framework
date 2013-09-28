@@ -81,6 +81,12 @@
     <Compile Include="Exceptions\IExceptionFormatter.cs" />
     <Compile Include="Exceptions\IExceptionFormatterFactory.cs" />
     <Compile Include="Exceptions\IExceptionFormatter`.cs" />
+    <Compile Include="Kernel\IKernelContext.cs" />
+    <Compile Include="Kernel\IKernelEvent.cs" />
+    <Compile Include="Kernel\KernelContext.cs" />
+    <Compile Include="Kernel\KernelEvent.cs" />
+    <Compile Include="Kernel\KernelEventCompletedArguments.cs" />
+    <Compile Include="Kernel\KernelEventIncompleteException.cs" />
     <Compile Include="Logging\ComponentLogger.cs" />
     <Compile Include="Logging\IgnoreInstanceLogAttribute.cs" />
     <Compile Include="Logging\ILoggingService.cs" />

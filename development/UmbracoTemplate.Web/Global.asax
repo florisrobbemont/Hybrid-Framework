@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Umbraco.Extensions.Utilities.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="UmbracoTemplate.Web.Mvc.Global" Language="C#" %>

@@ -1,22 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 
-namespace Umbraco.Extensions.Utilities
+namespace UmbracoTemplate.Web.Mvc
 {
     public class Global : Umbraco.Web.UmbracoApplication
     {
         public override string GetVaryByCustomString(HttpContext context, string custom)
         {
-            if (custom.ToLower() == "url")
+            if (custom.Equals("url", StringComparison.OrdinalIgnoreCase))
             {
                 return "url=" + context.Request.Url.AbsoluteUri;
             }
 
-            if (custom.ToLower() == "url;device")
+            if (custom.Equals("url;device", StringComparison.OrdinalIgnoreCase))
             {
-                var mobileDetection = new MobileDetection(System.Web.HttpContext.Current);
+                var mobileDetection = new MobileDetection(context);
                 var isSmartphone = mobileDetection.DetectSmartphone();
                 return "url=" + context.Request.Url.AbsoluteUri + "&isSmartphone=" + isSmartphone;
             }

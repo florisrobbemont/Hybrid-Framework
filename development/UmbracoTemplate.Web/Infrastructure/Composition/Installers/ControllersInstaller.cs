@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using Castle.Core;
 using Castle.MicroKernel.Registration;
+using UmbracoTemplate.Composition;
 
 namespace UmbracoTemplate.Web.Infrastructure.Composition.Installers
 {
@@ -20,7 +21,8 @@ namespace UmbracoTemplate.Web.Infrastructure.Composition.Installers
         private BasedOnDescriptor FindControllers()
         {
             return Classes.FromAssemblyInDirectory(new EntireBinAssemblyFilter())
-                    .BasedOn<IController>();
+                          .BasedOn<IController>()
+                          .If(x => x.Name.EndsWith("Controller"));
         }
 
         /// <summary>
@@ -30,7 +32,8 @@ namespace UmbracoTemplate.Web.Infrastructure.Composition.Installers
         private BasedOnDescriptor FindApiControllers()
         {
             return Classes.FromAssemblyInDirectory(new EntireBinAssemblyFilter())
-                    .BasedOn<IHttpController>();
+                          .BasedOn<IHttpController>()
+                          .If(x => x.Name.EndsWith("ApiController"));
         }
     }
 }
