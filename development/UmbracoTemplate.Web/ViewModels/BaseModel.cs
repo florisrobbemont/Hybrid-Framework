@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Umbraco.Web;
 using Umbraco.Web.Models;
-using UmbracoTemplate.Web.ViewModels.Custom;
+using UmbracoTemplate.Web.Models;
 
 namespace UmbracoTemplate.Web.ViewModels
 {

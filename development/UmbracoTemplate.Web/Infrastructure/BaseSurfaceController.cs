@@ -5,8 +5,8 @@ using DevTrends.MvcDonutCaching;
 using Umbraco.Core.Logging;
 using Umbraco.Web.Models;
 using Umbraco.Web.Mvc;
+using UmbracoTemplate.Web.Models;
 using UmbracoTemplate.Web.ViewModels;
-using UmbracoTemplate.Web.ViewModels.Custom;
 
 namespace UmbracoTemplate.Web.Infrastructure
 {

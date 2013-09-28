@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace UmbracoTemplate.Web.ViewModels.Custom
+namespace UmbracoTemplate.Web.Models
 {
     public class SitemapItem
     {

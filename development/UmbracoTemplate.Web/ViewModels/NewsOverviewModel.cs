@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using UmbracoTemplate.Web.ViewModels.Custom;
+using UmbracoTemplate.Web.Models;
 
 namespace UmbracoTemplate.Web.ViewModels
 {

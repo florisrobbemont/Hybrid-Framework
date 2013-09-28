@@ -1,4 +1,4 @@
-﻿namespace UmbracoTemplate.Web.ViewModels.Custom
+﻿namespace UmbracoTemplate.Web.Models
 {
     public class WidgetBase
     {

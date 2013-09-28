@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Umbraco.Web;
 using Umbraco.Web.WebApi;
-using UmbracoTemplate.Web.ViewModels.Custom;
+using UmbracoTemplate.Web.Models;
 
 namespace UmbracoTemplate.Web.Controllers.Api
 {
