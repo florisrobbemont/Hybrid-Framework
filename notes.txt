@@ -5,6 +5,9 @@
   Instead of writing: if(custom.ToLower() == "url")
   Do: if(custom.Equals("url", StringComparison.OrdinalIgnoreCase))
 
+- DEV Tip: Extension methods should be used to extend the class the're written for. Using an extension method as a place to put code can bite you in the long run.
+           For example: The UmbracoHelper class is used for Umbraco methods. When you extend that class, it should only be to used for that class.
+
 - It's better to use NuGet package restore then to include all DLL's in your repository. This way the repo stays small.
   I've replaced the .gitignore file with ours. We exclude certain files from the web project's BIN folder manually.
 
