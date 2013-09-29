@@ -1,10 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DevTrends.MvcDonutCaching;
+using Umbraco.Core;
 using Umbraco.Core.Logging;
+using Umbraco.Web;
 using Umbraco.Web.Models;
 using Umbraco.Web.Mvc;
+using UmbracoTemplate.Logging;
+using UmbracoTemplate.Web.Content;
+using UmbracoTemplate.Web.Extensions;
 using UmbracoTemplate.Web.Models;
 using UmbracoTemplate.Web.ViewModels;
 
@@ -12,6 +18,21 @@ namespace UmbracoTemplate.Web.Infrastructure
 {
     public abstract class BaseSurfaceController : SurfaceController, IRenderMvcController
     {
+        /// <summary>
+        /// Gets or sets the LoggingService
+        /// </summary>
+        public ILoggingService LoggingService { get; set; }
+
+        /// <summary>
+        /// Gets or sets the OutputCacheManager
+        /// </summary>
+        public IOutputCacheManager OutputCacheManager { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Umbraco Helper Factory
+        /// </summary>
+        public IUmbracoHelperFactory UmbracoHelperFactory { get; set; }
+        
         /// <summary>
         /// Checks to make sure the physical view file exists on disk.
         /// </summary>
@@ -25,6 +46,7 @@ namespace UmbracoTemplate.Web.Infrastructure
                 LogHelper.Warn<RenderMvcController>("No physical template file was found for template " + template);
                 return false;
             }
+
             return true;
         }
 
@@ -44,6 +66,7 @@ namespace UmbracoTemplate.Web.Infrastructure
             {
                 return Content("");
             }
+
             return View(template, model);
         }
 
@@ -60,15 +83,14 @@ namespace UmbracoTemplate.Web.Infrastructure
         /// <summary>
         /// Return the base model which needs to be used everywhere.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="content"></param>
-        /// <returns></returns>
         protected T GetModel<T>()
             where T : BaseModel, new()
         {
-            var model = new T();
-            model.MenuItems = GetMenuItems();
-            model.Widgets = GetWidgets();
+            var model = new T
+                {
+                    MenuItems = GetMenuItems(), 
+                    Widgets = GetWidgets()
+                };
 
             return model;
         }
@@ -104,7 +126,7 @@ namespace UmbracoTemplate.Web.Infrastructure
                         {
                             Title = widget.GetPropertyValue<string>("widgetTitle"),
                             Text = widget.GetPropertyValue<HtmlString>("widgetText"),
-                            Url = widget.GetUrlPicker("widgetUrl"),
+                            Url = widget.GetUrlPicker(UmbracoHelperFactory.GetCurrent(), "widgetUrl"),
                             View = "WidgetText"
                         });
                         break;
@@ -132,11 +154,10 @@ namespace UmbracoTemplate.Web.Infrastructure
             }
 
             //Log the exception.
-            Umbraco.LogException(filterContext.Exception);
+            LoggingService.Error("Exception unhandled in BaseSurfaceController", filterContext.Exception);
 
             //Clear the cache if an error occurs.
-            var cacheManager = new OutputCacheManager();
-            cacheManager.RemoveItems();
+            OutputCacheManager.RemoveItems();
 
             //Show the view error.
             filterContext.Result = View("Error");

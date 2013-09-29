@@ -33,35 +33,7 @@ namespace Umbraco.Extensions.Utilities
     public static class ExtensionMethods
     {
         
-
-        #region IPublishedContent - Methods
-
-        #region DAMP
-
         
-
-        #endregion
-
-        #region uComponentes
-
-        
-
-        #endregion
-
-        #region Other datatypes
-
-        
-
-        #endregion
-
-        #region Property
-
-      
-
-        #endregion
-
-        #endregion
-
         #region UmbracoHelper - Methods
 
         #region Email
@@ -183,199 +155,73 @@ namespace Umbraco.Extensions.Utilities
 
         #endregion
 
-        #region Validation
-
-        /// <summary>
-        /// Checks if the e-mail is valid.
-        /// </summary>
-        /// <param name="email"></param>
-        /// <returns></returns>
-        public static bool IsValidEmail(this UmbracoHelper umbraco, string email)
-        {
-            Regex r = new Regex(@"([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})");
-            return r.IsMatch(email);
-        }
-
-        #endregion
-
         #region Error
 
-        /// <summary>
-        /// Log an exception and send an email.
-        /// </summary>
-        /// <param name="ex"></param>
-        /// <param name="nodeId"></param>
-        /// <param name="type"></param>
-        public static void LogException(this UmbracoHelper umbraco, Exception ex)
-        {
-            try
-            {
-                int nodeId = -1;
-                if (System.Web.HttpContext.Current.Items["pageID"] != null)
-                {
-                    int.TryParse(System.Web.HttpContext.Current.Items["pageID"].ToString(), out nodeId);
-                }
+        ///// <summary>
+        ///// Log an exception and send an email.
+        ///// </summary>
+        ///// <param name="ex"></param>
+        ///// <param name="nodeId"></param>
+        ///// <param name="type"></param>
+        //public static void LogException(this UmbracoHelper umbraco, Exception ex)
+        //{
+        //    try
+        //    {
+        //        int nodeId = -1;
+        //        if (System.Web.HttpContext.Current.Items["pageID"] != null)
+        //        {
+        //            int.TryParse(System.Web.HttpContext.Current.Items["pageID"].ToString(), out nodeId);
+        //        }
 
-                StringBuilder comment = new StringBuilder();
-                StringBuilder commentHtml = new StringBuilder();
+        //        StringBuilder comment = new StringBuilder();
+        //        StringBuilder commentHtml = new StringBuilder();
 
-                commentHtml.AppendFormat("<p><strong>Url:</strong><br/>{0}</p>", System.Web.HttpContext.Current.Request.Url.AbsoluteUri);
-                commentHtml.AppendFormat("<p><strong>Node id:</strong><br/>{0}</p>", nodeId);
+        //        commentHtml.AppendFormat("<p><strong>Url:</strong><br/>{0}</p>", System.Web.HttpContext.Current.Request.Url.AbsoluteUri);
+        //        commentHtml.AppendFormat("<p><strong>Node id:</strong><br/>{0}</p>", nodeId);
 
-                //Add the exception.
-                comment.AppendFormat("Exception: {0} - StackTrace: {1}", ex.Message, ex.StackTrace);
-                commentHtml.AppendFormat("<p><strong>Exception:</strong><br/>{0}</p>", ex.Message);
-                commentHtml.AppendFormat("<p><strong>StackTrace:</strong><br/>{0}</p>", ex.StackTrace);
+        //        //Add the exception.
+        //        comment.AppendFormat("Exception: {0} - StackTrace: {1}", ex.Message, ex.StackTrace);
+        //        commentHtml.AppendFormat("<p><strong>Exception:</strong><br/>{0}</p>", ex.Message);
+        //        commentHtml.AppendFormat("<p><strong>StackTrace:</strong><br/>{0}</p>", ex.StackTrace);
 
-                if (ex.InnerException != null)
-                {
-                    //Add the inner exception.
-                    comment.AppendFormat("- InnerException: {0} - InnerStackTrace: {1}", ex.InnerException.Message, ex.InnerException.StackTrace);
-                    commentHtml.AppendFormat("<p><strong>InnerException:</strong><br/>{0}</p>", ex.InnerException.Message);
-                    commentHtml.AppendFormat("<p><strong>InnerStackTrace:</strong><br/>{1}</p>", ex.InnerException.StackTrace);
-                }
+        //        if (ex.InnerException != null)
+        //        {
+        //            //Add the inner exception.
+        //            comment.AppendFormat("- InnerException: {0} - InnerStackTrace: {1}", ex.InnerException.Message, ex.InnerException.StackTrace);
+        //            commentHtml.AppendFormat("<p><strong>InnerException:</strong><br/>{0}</p>", ex.InnerException.Message);
+        //            commentHtml.AppendFormat("<p><strong>InnerStackTrace:</strong><br/>{1}</p>", ex.InnerException.StackTrace);
+        //        }
 
-                //Log the Exception into Umbraco.
-                Log.Add(LogTypes.Error, nodeId, comment.ToString());
+        //        //Log the Exception into Umbraco.
+        //        Log.Add(LogTypes.Error, nodeId, comment.ToString());
 
-                //Send an email with the exception.
-                umbraco.SendEmail(umbraco.Config().ErrorFrom, umbraco.Config().ErrorFromName, umbraco.Config().ErrorTo, "Error log", commentHtml.ToString());
-            }
-            catch
-            {
-                //Do nothing because nothing can be done with this exception.
-            }
-        }
+        //        //Send an email with the exception.
+        //        umbraco.SendEmail(umbraco.Config().ErrorFrom, umbraco.Config().ErrorFromName, umbraco.Config().ErrorTo, "Error log", commentHtml.ToString());
+        //    }
+        //    catch
+        //    {
+        //        //Do nothing because nothing can be done with this exception.
+        //    }
+        //}
 
         #endregion
 
         #region Property
 
-        /// <summary>
-        /// Return an instance of the Configuration class.
-        /// </summary>
-        public static Configuration Config(this UmbracoHelper umbraco)
-        {
-            return Configuration.Instance;
-        }
+        ///// <summary>
+        ///// Return an instance of the Configuration class.
+        ///// </summary>
+        //public static Configuration Config(this UmbracoHelper umbraco)
+        //{
+        //    return Configuration.Instance;
+        //}
 
         #endregion
 
-        #region Pager
-
-        /// <summary>
-        /// Return all fields required for paging.
-        /// </summary>
-        /// <param name="itemsPerPage"></param>
-        /// <param name="numberOfItems"></param>
-        /// <returns></returns>
-        public static Pager GetPager(this UmbracoHelper umbraco, int itemsPerPage, int numberOfItems)
-        {
-            // paging calculations
-            int currentPage;
-            if (!int.TryParse(HttpContext.Current.Request.QueryString["Page"], out currentPage))
-            {
-                currentPage = 1;
-            }
-            var numberOfPages = numberOfItems % itemsPerPage == 0 ? Math.Ceiling((decimal)(numberOfItems / itemsPerPage)) : Math.Ceiling((decimal)(numberOfItems / itemsPerPage)) + 1;
-            var pages = Enumerable.Range(1, (int)numberOfPages);
-
-            return new Pager()
-            {
-                NumberOfItems = numberOfItems,
-                ItemsPerPage = itemsPerPage,
-                CurrentPage = currentPage,
-                Pages = pages
-            };
-        }
-
-        #endregion
-
+    
         #region Other
 
-        /// <summary>
-        /// Appends or updates a query string value to the current Url
-        /// </summary>
-        /// <param name="key">The query string key</param>
-        /// <param name="value">The query string value</param>
-        /// <returns>The updated Url</returns>
-        public static string AppendOrUpdateQueryString(this UmbracoHelper umbraco, string key, string value)
-        {
-            return umbraco.AppendOrUpdateQueryString(HttpContext.Current.Request.RawUrl, key, value);
-        }
-
-        /// <summary>
-        /// Appends or updates a query string value to supplied Url
-        /// </summary>
-        /// <param name="url">The Url to update</param>
-        /// <param name="key">The query string key</param>
-        /// <param name="value">The query string value</param>
-        /// <returns>The updated Url</returns>
-        public static string AppendOrUpdateQueryString(this UmbracoHelper umbraco, string url, string key, string value)
-        {
-            var q = '?';
-
-            if (url.IndexOf(q) == -1)
-            {
-                return string.Concat(url, q, key, '=', HttpUtility.UrlEncode(value));
-            }
-
-            var baseUrl = url.Substring(0, url.IndexOf(q));
-            var queryString = url.Substring(url.IndexOf(q) + 1);
-            var match = false;
-            var kvps = HttpUtility.ParseQueryString(queryString);
-
-            foreach (var queryStringKey in kvps.AllKeys)
-            {
-                if (queryStringKey == key)
-                {
-                    kvps[queryStringKey] = value;
-                    match = true;
-                    break;
-                }
-            }
-
-            if (!match)
-            {
-                kvps.Add(key, value);
-            }
-
-            return string.Concat(baseUrl, q, ConstructQueryString(kvps, null, false));
-        }
-
-        /// <summary>
-        /// Constructs a NameValueCollection into a query string.
-        /// </summary>
-        /// <remarks>Consider this method to be the opposite of "System.Web.HttpUtility.ParseQueryString"</remarks>
-        /// <param name="parameters">The NameValueCollection</param>
-        /// <param name="delimiter">The String to delimit the key/value pairs</param>
-        /// <param name="omitEmpty">Boolean to chose whether to omit empty values</param>
-        /// <returns>A key/value structured query string, delimited by the specified String</returns>
-        /// <example>
-        /// http://blog.leekelleher.com/2009/09/19/how-to-convert-namevaluecollection-to-a-query-string-revised/
-        /// </example>
-        private static string ConstructQueryString(NameValueCollection parameters, string delimiter, bool omitEmpty)
-        {
-            if (string.IsNullOrEmpty(delimiter))
-                delimiter = "&";
-
-            var equals = '=';
-            var items = new List<string>();
-
-            for (var i = 0; i < parameters.Count; i++)
-            {
-                foreach (var value in parameters.GetValues(i))
-                {
-                    var addValue = omitEmpty ? !string.IsNullOrEmpty(value) : true;
-                    if (addValue)
-                    {
-                        items.Add(string.Concat(parameters.GetKey(i), equals, HttpUtility.UrlEncode(value)));
-                    }
-                }
-            }
-
-            return string.Join(delimiter, items.ToArray());
-        }
+        
 
         #endregion
 

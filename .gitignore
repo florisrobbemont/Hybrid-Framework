@@ -144,7 +144,6 @@ $RECYCLE.BIN/
 #Temporarily ignore old Umbraco bin
 development/Umbraco.Site/bin/
 
-
 development/UmbracoTemplate.Web/bin/amd64
 development/UmbracoTemplate.Web/bin/x86
 development/UmbracoTemplate.Web/bin/*.xml
@@ -154,6 +153,8 @@ development/UmbracoTemplate.Web/bin/UmbracoTemplate.*
 development/UmbracoTemplate.Web/bin/uComponents.*
 development/UmbracoTemplate.Web/bin/System.*
 development/UmbracoTemplate.Web/bin/Microsoft.*
+development/UmbracoTemplate.Web/bin/Elmah.*
+development/UmbracoTemplate.Web/bin/AForge.*
 development/UmbracoTemplate.Web/bin/umbraco.dll
 development/UmbracoTemplate.Web/bin/[Uu]mbraco.*
 development/UmbracoTemplate.Web/bin/ServiceStack.Text.dll 

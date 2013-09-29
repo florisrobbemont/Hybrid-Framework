@@ -41,10 +41,7 @@ namespace UmbracoTemplate.Web.Extensions
         /// <summary>
         /// Return the UrlPicker that has been selected.
         /// </summary>
-        /// <param name="content"></param>
-        /// <param name="alias"></param>
-        /// <returns></returns>
-        public static UrlPicker GetUrlPicker(this IPublishedContent content, string alias)
+        public static UrlPicker GetUrlPicker(this IPublishedContent content, UmbracoHelper umbraco, string alias)
         {
             var urlPickerState = UrlPickerState.Deserialize(content.GetPropertyValue<string>(alias));
 
@@ -55,7 +52,7 @@ namespace UmbracoTemplate.Web.Extensions
 
             return new UrlPicker()
             {
-                Url = urlPickerState.Mode == UrlPickerMode.Content ? Umbraco.NiceUrl(urlPickerState.NodeId.Value) : urlPickerState.Url,
+                Url = urlPickerState.Mode == UrlPickerMode.Content ? umbraco.NiceUrl(urlPickerState.NodeId.Value) : urlPickerState.Url,
                 Title = urlPickerState.Title,
                 NewWindow = urlPickerState.NewWindow
             };
@@ -64,10 +61,7 @@ namespace UmbracoTemplate.Web.Extensions
         /// <summary>
         /// Return the Multi UrlPicker that has been selected.
         /// </summary>
-        /// <param name="content"></param>
-        /// <param name="alias"></param>
-        /// <returns></returns>
-        public static IEnumerable<UrlPicker> GetMultiUrlPicker(this IPublishedContent content, string alias)
+        public static IEnumerable<UrlPicker> GetMultiUrlPicker(this IPublishedContent content, UmbracoHelper umbraco, string alias)
         {
             var xml = content.GetPropertyValue<RawXElement>(alias);
 
@@ -85,7 +79,7 @@ namespace UmbracoTemplate.Web.Extensions
                         || !string.IsNullOrEmpty(urlPickerState.Url)
                         select new UrlPicker()
                         {
-                            Url = urlPickerState.Mode == UrlPickerMode.Content ? Umbraco.TypedContent(urlPickerState.NodeId.Value).Url : urlPickerState.Url,
+                            Url = urlPickerState.Mode == UrlPickerMode.Content ? umbraco.TypedContent(urlPickerState.NodeId.Value).Url : urlPickerState.Url,
                             Title = urlPickerState.Title,
                             NewWindow = urlPickerState.NewWindow
                         }

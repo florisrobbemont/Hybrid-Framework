@@ -59,21 +59,38 @@ namespace UmbracoTemplate.Web.Logging
         public void Error(string message, params object[] args)
         {
             LogHelper.Error<LoggingService>(string.Format(message, args), new Exception(string.Format(message, args)));
+            LogElmah(new Exception(string.Format(message, args)), string.Format(message, args));
         }
 
         public void Error(string message, Exception exception, params object[] args)
         {
             LogHelper.Error<LoggingService>(string.Format(message, args), exception);
+            LogElmah(exception, string.Format(message, args));
         }
 
         public void Fatal(string message, params object[] args)
         {
             LogHelper.Error<LoggingService>(string.Format(message, args), new Exception(string.Format(message, args)));
+            LogElmah(new Exception(string.Format(message, args)), string.Format(message, args));
         }
 
         public void Fatal(string message, Exception exception, params object[] args)
         {
             LogHelper.Error<LoggingService>(string.Format(message, args), exception);
+            LogElmah(exception, string.Format(message, args));
+        }
+
+        private void LogElmah(Exception ex, string customMessage)
+        {
+            var error = new Elmah.Error(ex);
+
+            if (!string.IsNullOrEmpty(customMessage))
+            {
+                error.Detail = customMessage;
+            }
+
+            if (HttpContextBase != null)
+                Elmah.ErrorLog.GetDefault(HttpContextBase.ApplicationInstance.Context).Log(error);
         }
     }
 }

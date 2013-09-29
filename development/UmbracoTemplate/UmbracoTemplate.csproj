@@ -57,6 +57,7 @@
     <Compile Include="Composition\GenericImplementationMatchingStrategy.cs" />
     <Compile Include="Composition\GenericTypedFactoryComponentSelector.cs" />
     <Compile Include="Composition\Installers\ExceptionInstaller.cs" />
+    <Compile Include="Composition\Installers\KernelInstaller.cs" />
     <Compile Include="Composition\Installers\SecurityInstaller.cs" />
     <Compile Include="Composition\IObjectFactory.cs" />
     <Compile Include="Composition\ObjectFactory.cs" />

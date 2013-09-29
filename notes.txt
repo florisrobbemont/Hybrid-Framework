@@ -52,6 +52,11 @@
 
 - I've splitted up the class called: ExtensionMethods into different categories. They are spread out throughout the application based on their extension.
 
+- I've rewritten your logging system and added Elmah (https://code.google.com/p/elmah/). This system allows you see all the errors that have happened on your site.
+  It also allows you to add errors yourself (from code). I saw you're using an email based logging system now (we've used that too). The problem with using such a method 
+  is that developers will create Outlook rules for such error and then you'll end up with a mailbox full of errors which no one reads. Searching inside that box is also 
+  very tricky. Using ELMAH, you can open up the site and see all the errors (using a special URL). The errors are saved as XML files in the App_Data folder.
+
 - TODO:
 	- Email
 	- Sitemap

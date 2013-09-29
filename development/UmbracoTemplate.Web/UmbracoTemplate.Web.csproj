@@ -42,6 +42,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge">
+      <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging">
+      <HintPath>..\packages\AForge.Imaging.2.2.5\lib\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Math">
+      <HintPath>..\packages\AForge.Math.2.2.5\lib\AForge.Math.dll</HintPath>
+    </Reference>
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
@@ -84,6 +93,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Eksponent.CropUp.UmbracoIV.dll</HintPath>
     </Reference>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah.Mvc">
+      <HintPath>..\packages\Elmah.MVC.2.1.1\lib\net40\Elmah.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Examine">
       <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\Examine.dll</HintPath>
     </Reference>
@@ -92,6 +108,12 @@
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
       <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageResizer">
+      <HintPath>..\packages\ImageResizer.3.3.3\lib\ImageResizer.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageResizer.Mvc">
+      <HintPath>..\packages\ImageResizer.Mvc.3.3.3\lib\ImageResizer.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Imazen.SlimResponse">
       <HintPath>..\packages\Imazen.SlimResponse.0.2.4936.26457\lib\net40\Imazen.SlimResponse.dll</HintPath>
@@ -291,6 +313,8 @@
     <Compile Include="Extensions\DampExtensionMethods.cs" />
     <Compile Include="Extensions\PublishedContentExtensionMethods.cs" />
     <Compile Include="Extensions\UComponentsExtensionMethods.cs" />
+    <Compile Include="Extensions\UmbracoHelperExtensions.cs" />
+    <Compile Include="Infrastructure\Composition\Installers\CachingInstaller.cs" />
     <Compile Include="Mvc\Global.cs" />
     <Compile Include="Bundles\IBundleConfiguration.cs" />
     <Compile Include="Bundles\JavascriptBundleConfiguration.cs" />
