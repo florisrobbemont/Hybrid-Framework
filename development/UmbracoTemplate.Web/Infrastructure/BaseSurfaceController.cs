@@ -34,23 +34,6 @@ namespace UmbracoTemplate.Web.Infrastructure
         public IUmbracoHelperFactory UmbracoHelperFactory { get; set; }
         
         /// <summary>
-        /// Checks to make sure the physical view file exists on disk.
-        /// </summary>
-        /// <param name="template"></param>
-        /// <returns></returns>
-        protected bool EnsurePhsyicalViewExists(string template)
-        {
-            var result = ViewEngines.Engines.FindView(ControllerContext, template, null);
-            if (result.View == null)
-            {
-                LogHelper.Warn<RenderMvcController>("No physical template file was found for template " + template);
-                return false;
-            }
-
-            return true;
-        }
-
-        /// <summary>
         /// Returns an ActionResult based on the template name found in the route values and the given model.
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -62,11 +45,7 @@ namespace UmbracoTemplate.Web.Infrastructure
         protected ActionResult CurrentTemplate<T>(T model)
         {
             var template = ControllerContext.RouteData.Values["action"].ToString();
-            if (!EnsurePhsyicalViewExists(template))
-            {
-                return Content("");
-            }
-
+           
             return View(template, model);
         }
 

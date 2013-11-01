@@ -31,6 +31,7 @@ namespace UmbracoTemplate.Web.Boot
 
         public void OnApplicationStarting(UmbracoApplicationBase umbracoApplication, ApplicationContext applicationContext)
         {
+            Application.Debug = umbracoApplication.Context.IsDebuggingEnabled;
             Application.Create();
 
             FilteredControllerFactoriesResolver.Current.InsertType<UmbracoFilteredControllerFactory>(0);

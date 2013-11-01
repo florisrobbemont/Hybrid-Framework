@@ -57,6 +57,19 @@
   is that developers will create Outlook rules for such error and then you'll end up with a mailbox full of errors which no one reads. Searching inside that box is also 
   very tricky. Using ELMAH, you can open up the site and see all the errors (using a special URL). The errors are saved as XML files in the App_Data folder.
 
+- I've added view compilation. This means that every compile...all the views are compiled as well. All errors in the views will now end up in your Visual Studio error dialog
+  Also, you don't have to deploy the Views folder. They are compiled into a single DLL which can be deployed inside the bin folder.
+  Benefits:
+	- Better checks on views errors
+	- Way faster startup time of you website (especially when you have a lot of views)
+	- You always need to build before you can deploy a change to your view (safer deployments)
+	- You cannot change a view on the production environment (safer for everyone!)
+
+- I've removed the EnsurePhsyicalViewExists method from the base controller. I think this check does not belong in a production environment. It will slow down the process
+  of serving a page. I prefer letting the code fail. You will see the exception when you're developing.
+
+- I've added the extensions namespace to the web.config in the Views folder. This way you don't have to add a using statement to each view (UmbracoTemplate.Web.Extensions)
+
 - TODO:
 	- Email
 	- Sitemap

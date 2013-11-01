@@ -147,4 +147,5 @@
             </Code>
         </Task>
     </UsingTask>
+	<Import Project="..\packages\**\tools\NuGet.import.targets" />
 </Project>

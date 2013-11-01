@@ -156,6 +156,17 @@
     <Reference Include="Our.Umbraco.uGoLive.Checks">
       <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\Our.Umbraco.uGoLive.Checks.dll</HintPath>
     </Reference>
+    <Reference Include="RazorGenerator.Mvc">
+      <HintPath>..\packages\RazorGenerator.Mvc.2.1.2\lib\net40\RazorGenerator.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="SEOChecker, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\SEOChecker.dll</HintPath>
+    </Reference>
+    <Reference Include="SEOChecker.Library, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\SEOChecker.Library.dll</HintPath>
+    </Reference>
     <Reference Include="SQLCE4Umbraco">
       <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\SQLCE4Umbraco.dll</HintPath>
     </Reference>
@@ -302,6 +313,9 @@
     <Reference Include="UrlRewritingNet.UrlRewriter">
       <HintPath>..\packages\UmbracoCms.Core.6.1.5\lib\UrlRewritingNet.UrlRewriter.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\packages\WebActivatorEx.2.0.3\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <HintPath>..\packages\WebGrease.1.1.0\lib\WebGrease.dll</HintPath>
     </Reference>
@@ -310,6 +324,7 @@
     <Compile Include="Boot\Boot.cs" />
     <Compile Include="Boot\BundleStartup.cs" />
     <Compile Include="Boot\FilterConfig.cs" />
+    <Compile Include="Boot\RazorStartup.cs" />
     <Compile Include="Extensions\DampExtensionMethods.cs" />
     <Compile Include="Extensions\PublishedContentExtensionMethods.cs" />
     <Compile Include="Extensions\UComponentsExtensionMethods.cs" />
@@ -521,6 +536,8 @@
   </ProjectExtensions>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Import Project="..\packages\UmbracoCms.6.1.5\build\net40\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.6.1.5\build\net40\UmbracoCms.targets')" />
+  <Import Project="$(SolutionDir)\build\PrecompileWebsite.targets" />
+  <Import Project="..\packages\RazorGenerator.MsBuild.2.1.5\build\RazorGenerator.MsBuild.targets" Condition="Exists('..\packages\RazorGenerator.MsBuild.2.1.5\build\RazorGenerator.MsBuild.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
